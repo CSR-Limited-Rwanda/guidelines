@@ -96,12 +96,6 @@ This document outlines mandatory guidelines that all team members must follow wh
 - Document breaking changes
 - Keep docs up to date
 
-## Important Reminders
-- These guidelines are mandatory
-- Work won't be merged if guidelines aren't followed
-- Ask questions when unsure
-- Review guidelines regularly
-- Team success depends on following these
 
 ## Consequences of Not Following Guidelines
 Not following these guidelines can cause serious problems for our live projects, causing PRs to be rejected and creating delays and extra work for everyone. More importantly:

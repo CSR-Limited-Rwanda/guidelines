@@ -3,79 +3,113 @@
 ## Introduction
 This document outlines mandatory guidelines that all team members must follow when working on our live projects. These guidelines ensure code quality, maintain security, and prevent potential issues in production.
 
-## 1. Before Creating a Pull Request
-- Run ALL tests locally - no exceptions
-- Test your feature manually with different scenarios
-- Check your code for any console logs or debug statements
-- Remove any commented-out code
-- Make sure your branch is up to date with the main branch
+## UI/UX Guidelines
+### Design Consistency
+- Follow established design system and patterns
+- Maintain consistent spacing and alignment
+- Use approved color schemes and typography
+- Ensure accessibility standards are met
+- Document any new UI patterns
 
-## 2. Code Quality Standards
-- Write clear, descriptive variable and function names
-- Keep functions small and focused on one task
-- Add comments only for complex logic, not obvious code
-- Follow the existing code style and patterns
-- Use proper indentation and formatting
-- Remove unused imports and variables
+### User Experience
+- Design for mobile-first approach
+- Consider loading states and transitions
+- Implement proper error states
+- Ensure responsive design across devices
+- Validate user flows before implementation
 
-## 3. Pull Request Guidelines
-- Keep PRs small and focused on one feature/fix
-- Write clear PR descriptions explaining what and why
-- Include screenshots for UI changes
-- List any important changes that reviewers should focus on
-- Respond to review comments within 24 hours
+## Frontend Guidelines
+### Code Quality
+- Write clear, descriptive component names
+- Keep components small and focused
+- Remove console.logs and debuggers
+- Follow existing code patterns
+- Use proper TypeScript/PropTypes
 
-## 4. Testing Requirements
-- Write tests for new features
-- Test edge cases (empty states, error states)
-- Check mobile responsiveness for UI changes
-- Test with different user roles if applicable
-- Verify that existing features still work
-
-## 5. Security and Configuration
-- Never commit API keys or passwords
-- Don't push sensitive data even by accident
-- Use environment variables for all secrets
-- Be extra careful when changing configuration files
-- Double-check database changes and migrations
-
-## 6. Version Control Practices
-- Write clear commit messages
-- Keep commits focused and logical
-- Don't commit commented code
-- Don't commit package-lock.json unless you've added packages
-- Create feature branches from the latest main branch
-
-## 7. Documentation Requirements
-- Update README if you change setup steps
-- Document new environment variables
-- Add JSDoc comments for complex functions
-- Update API documentation for new endpoints
-- Document any breaking changes
-
-## 8. Error Handling
-- Always handle possible errors
-- Add proper error messages for users
-- Log important errors for debugging
-- Don't show technical errors to users
-- Test error scenarios
-
-## 9. Performance Considerations
+### Performance
 - Optimize images before committing
-- Don't load unnecessary data
-- Use pagination for large data sets
+- Implement proper code splitting
 - Keep bundle sizes in check
-- Remove console.log statements
+- Use proper caching strategies
+- Optimize rendering performance
+
+### Testing
+- Write unit tests for components
+- Test responsive breakpoints
+- Verify browser compatibility
+- Test error states and loading
+- Check accessibility compliance
+
+## Backend Guidelines
+### Data Security
+- Never commit API keys or secrets
+- Use environment variables
+- Implement proper data validation
+- Secure all API endpoints
+- Follow authentication best practices
+
+### Database
+- Write safe database migrations
+- Back up data before migrations
+- Implement proper indexing
+- Handle data relationships carefully
+- Document schema changes
+
+### Testing Requirements
+- Write comprehensive unit tests for all services
+- Test all edge cases in business logic
+- Mock external services appropriately
+- Write integration tests for critical flows
+- Test database queries and migrations
+- Cover error scenarios and exceptions
+- Test with different user permissions
+- Verify API response formats
+- Test pagination and filtering
+- Ensure proper error handling coverage
+
+### API Design
+- Follow REST/GraphQL conventions
+- Implement proper error handling
+- Document all endpoints
+- Version APIs appropriately
+- Implement rate limiting
+
+## Common Guidelines
+### Pull Request Process
+- Run ALL tests locally
+- Keep PRs focused and small
+- Write clear PR descriptions
+- Include necessary screenshots
+- Respond to reviews within 24 hours
+
+### Version Control
+- Write clear commit messages
+- Keep branches up to date
+- Don't commit node_modules
+- Create feature branches
+- Follow branching strategy
+
+### Documentation
+- Update README when needed
+- Document environment variables
+- Add API documentation
+- Document breaking changes
+- Keep docs up to date
 
 ## Important Reminders
-- These guidelines are mandatory, not suggestions
-- Violations will result in PR rejection
-- Ask for help if you're unsure about anything
-- Better to ask questions than to break something
-- Keep an eye on the size of your changes
+- These guidelines are mandatory
+- Work won't be merged if guidelines aren't followed
+- Ask questions when unsure
+- Review guidelines regularly
+- Team success depends on following these
 
 ## Consequences of Not Following Guidelines
+Not following these guidelines can cause serious problems for our live projects, causing PRs to be rejected and creating delays and extra work for everyone. More importantly:
 
-Not following those guidelines can cause serious problems for our live projects, cause PRs to be rejected, hence causing delays and extra work for everyone. More importantly, backend, ignoring these could lead to data loss or security problems. So read them every day before starting your work, until they are engraved in your everyday strategy.
+- UI/UX violations can lead to inconsistent user experience and accessibility issues
+- Frontend violations can cause performance problems and poor user experience
+- Backend violations could lead to data loss or security vulnerabilities
 
-For any questions or clarifications about these guidelines or consequences, please reach out to your team lead
+Read these guidelines every day before starting your work until they are engraved in your everyday strategy.
+
+For any questions or clarifications, please reach out to your team lead.

@@ -67,13 +67,6 @@ This document outlines mandatory guidelines that all team members must follow wh
 - Keep bundle sizes in check
 - Remove console.log statements
 
-## 10. Code Review Etiquette
-- Review assigned PRs within 48 hours
-- Be constructive in comments
-- Test the changes locally if needed
-- Don't approve without proper testing
-- Ask questions if something isn't clear
-
 ## Important Reminders
 - These guidelines are mandatory, not suggestions
 - Violations will result in PR rejection
@@ -83,38 +76,6 @@ This document outlines mandatory guidelines that all team members must follow wh
 
 ## Consequences of Not Following Guidelines
 
-1. Immediate Consequences
-   - Pull Request will be rejected
-   - Additional review cycles, causing project delays
-   - Rework required, impacting deadlines
-   - Documentation of the violation in code review history
-
-2. Technical Risks
-   - Security vulnerabilities if security guidelines are ignored
-   - Data loss from improper database handling
-   - Production outages from untested code
-   - Performance issues affecting user experience
-   - Breaking existing functionality
-
-3. Project Impact
-   - Delays in feature delivery
-   - Increased technical debt
-   - Additional QA cycles
-   - Maintenance difficulties
-   - Inconsistent codebase
-
-4. Team Impact
-   - Extra work for code reviewers
-   - Knowledge sharing difficulties
-   - Reduced team velocity
-   - Communication overhead
-   - Loss of trust in team collaboration
-
-5. Repeated Violations May Lead To
-   - Mandatory pair programming sessions
-   - Additional code review requirements
-   - Required training sessions
-   - Performance improvement plans
-   - Restricted production access
+Not following those guidelines can cause serious problems for our live projects, cause PRs to be rejected, hence causing delays and extra work for everyone. More importantly, backend, ignoring these could lead to data loss or security problems. So read them every day before starting your work, until they are engraved in your everyday strategy.
 
 For any questions or clarifications about these guidelines or consequences, please reach out to your team lead

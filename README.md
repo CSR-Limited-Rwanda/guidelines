@@ -1,191 +1,178 @@
-# Development Guidelines for Live Projects
-
-## Introduction
-This document outlines mandatory guidelines that all team members must follow when working on our live projects. These guidelines ensure code quality, maintain security, and prevent potential issues in production.
-
-## UI/UX Guidelines
-### Design Consistency
-- Follow established design system and patterns
-- Maintain consistent spacing and alignment
-- Use approved color schemes and typography
-- Ensure accessibility standards are met
-- Document any new UI patterns
-
-### User Experience
-- Design for mobile-first approach
-- Consider loading states and transitions
-- Implement proper error states
-- Ensure responsive design across devices
-- Validate user flows before implementation
-
-## Frontend Guidelines
-### Code Quality
-- Write clear, descriptive component names
-- Keep components small and focused
-- Remove console.logs and debuggers
-- Follow existing code patterns
-- Use proper TypeScript/PropTypes
-
-### Performance
-- Optimize images before committing
-- Implement proper code splitting
-- Keep bundle sizes in check
-- Use proper caching strategies
-- Optimize rendering performance
-
-### Testing
-- Write unit tests for components
-- Test responsive breakpoints
-- Verify browser compatibility
-- Test error states and loading
-- Check accessibility compliance
-
-## Backend Guidelines
-### Data Security
-- Never commit API keys or secrets
-- Use environment variables
-- Implement proper data validation
-- Secure all API endpoints
-- Follow authentication best practices
-
-### Database
-- Write safe database migrations
-- Back up data before migrations
-- Implement proper indexing
-- Handle data relationships carefully
-- Document schema changes
-
-### Testing Requirements
-- Write comprehensive unit tests for all services
-- Test all edge cases in business logic
-- Mock external services appropriately
-- Write integration tests for critical flows
-- Test database queries and migrations
-- Cover error scenarios and exceptions
-- Test with different user permissions
-- Verify API response formats
-- Test pagination and filtering
-- Ensure proper error handling coverage
-
-### API Design
-- Follow REST/GraphQL conventions
-- Implement proper error handling
-- Document all endpoints
-- Version APIs appropriately
-- Implement rate limiting
-## API URL Structure
-
-The following is the standard structure for API endpoints:
-When access resources level api endpoint, you can use resource-id or resource-slug.
-
-### Base Structure:
-
-`{app-name}/{feature}/{resource}/{resource-id}/{action}`
-
-1. **Collection-level Endpoint:**  
-   **URL:** `app-name/feature/items/`  
-   **Purpose:** Used for listing all items or creating a new item.  
-   **Methods:**
-
-      - `GET` — List all items.
-
-2. **Collection-level Endpoint:**  
-   **URL:** `app-name/feature/items/new/`  
-   **Purpose:** Used for creating a new item.  
-   **Methods:**
-
-      - `POST` — Create a new item.
-
-3. **Single Resource Endpoint:**  
-   **URL:** `app-name/feature/items/{item-id}/`  
-   **Purpose:** Used for retrieving item by its ID.  
-   **Methods:**
-
-      - `GET` — Retrieve the item.
-4. **Single Resource Endpoint:**  
-   **URL:** `app-name/feature/items/{item-id}/delete/`  
-   **Purpose:** Used for  deleting a specific item by its ID.  
-   **Methods:**
-
-      - `DELETE` — Delete the item.
-
-4. **Update Endpoint:**  
-   **URL:** `app-name/feature/items/{item-id}/update/`  
-   **Purpose:** Used for updating a specific item by its ID.  
-   **Methods:**
-
-      - `PUT` — Replace the entire resource.
-      - `PATCH` — Partially update the resource.
-
-5. **Action-specific Endpoint (e.g., Delete, Archive):**  
-   **URL:** `app-name/feature/items/{item-id}/delete/`  
-   **Purpose:** Used for performing a specific action on an item, such as soft delete.  
-   **Methods:**
-
-      - `POST` — Perform the action (e.g., soft delete).
-
-6. **Filtered or Nested Resources:**
-
-      - **URL:** `app-name/feature/items/category/{category-id}/`
-      - **URL:** `app-name/feature/items/status/{status}/`  
-        **Purpose:** Retrieve items filtered by category or status.  
-        **Methods:**
-      - `GET` — Retrieve filtered data.
-
-7. **Bulk Actions:**  
-   **URL:** `app-name/feature/items/bulk-delete/`  
-   **Purpose:** Used for performing bulk operations on multiple resources.  
-   **Methods:**
-
-      - `POST` — Perform bulk actions (e.g., delete multiple items).
-
-8. **Search and Query Parameters:**  
-   **URL:** `app-name/feature/items/?search=term&filter=value`  
-   **Purpose:** Retrieve items using search or filter criteria.  
-   **Methods:**
-      - `GET` — Retrieve filtered data.
-
-### Notes:
-
-- **Plural nouns** are used for resources (e.g., `items`, `categories`) for consistency.
-- **HTTP methods** imply the action (`POST`, `PUT`, `PATCH`, `DELETE`), except for specific actions like `/update/` or `/delete/`.
-- **Language specifics** in python, instead of (`resource-id` or `resource-slug`) you should use (`resource_id` or `resource_slug`).
-- **Preferences** based on teams and standard preferences, you can add ( a tailing slash `/`) at the end of the endpoint or not. But make sure it's consistent
-- Avoid including verbs in endpoints, except for special actions (e.g., `/update/`, `/delete/`).
+Here's the improved and polished version of the document:
 
 ---
 
+# Development Guidelines for Live Projects
 
-## Common Guidelines
-### Pull Request Process
-- Run ALL tests locally
-- Keep PRs focused and small
-- Write clear PR descriptions
-- Include necessary screenshots
-- Respond to reviews within 24 hours
+## Introduction  
+This document outlines mandatory guidelines for all team members working on live projects. Following these guidelines ensures code quality, maintains security, and prevents potential production issues. Adherence to these standards is crucial for delivering a seamless user experience and maintaining the integrity of our systems.
 
-### Version Control
-- Write clear commit messages
-- Keep branches up to date
-- Don't commit node_modules
-- Create feature branches
-- Follow branching strategy
+---
 
-### Documentation
-- Update README when needed
-- Document environment variables
-- Add API documentation
-- Document breaking changes
-- Keep docs up to date
+## UI/UX Guidelines  
 
+### Design Consistency  
+- Follow the established design system and patterns.  
+- Maintain consistent spacing, alignment, and component styles.  
+- Use approved color schemes and typography.  
+- Ensure compliance with accessibility standards (WCAG 2.1).  
+- Document new UI patterns or components introduced.  
 
-## Consequences of Not Following Guidelines
-Not following these guidelines can cause serious problems for our live projects, causing PRs to be rejected and creating delays and extra work for everyone. More importantly:
+### User Experience  
+- Design with a mobile-first approach in mind.  
+- Account for loading states, transitions, and feedback mechanisms.  
+- Implement proper error states for user clarity.  
+- Ensure responsive design across all screen sizes and devices.  
+- Validate user flows through prototyping and testing before implementation.  
 
-- UI/UX violations can lead to inconsistent user experience and accessibility issues
-- Frontend violations can cause performance problems and poor user experience
-- Backend violations could lead to data loss or security vulnerabilities
+---
 
-Read these guidelines every day before starting your work until they are engraved in your everyday strategy.
+## Frontend Guidelines  
 
-For any questions or clarifications, please reach out to your team lead.
+### Code Quality  
+- Write clear and descriptive component names.  
+- Break components into small, focused, reusable units.  
+- Remove unnecessary `console.log` statements and debugging tools.  
+- Follow existing code patterns and maintain a consistent code style.  
+- Use proper TypeScript types or PropTypes for props validation.  
+
+### Performance  
+- Optimize images before committing to the codebase.  
+- Implement code splitting and lazy loading where applicable.  
+- Monitor and minimize bundle sizes to ensure fast load times.  
+- Use proper caching strategies for assets and API responses.  
+- Optimize rendering performance by reducing unnecessary re-renders.  
+
+### Testing  
+- Write unit tests for all components.  
+- Test responsive breakpoints and device compatibility.  
+- Verify cross-browser compatibility.  
+- Test error states, edge cases, and loading scenarios.  
+- Check accessibility compliance using tools like Lighthouse or Axe.  
+
+---
+
+## Backend Guidelines  
+
+### Data Security  
+- Never commit sensitive information like API keys, secrets, or credentials.  
+- Use environment variables to store sensitive data.  
+- Validate all incoming data rigorously.  
+- Secure API endpoints with proper authentication and authorization mechanisms.  
+- Follow industry best practices for securing data at rest and in transit.  
+
+### Database  
+- Write safe, reversible database migrations.  
+- Back up data before running any migrations.  
+- Implement proper indexing to optimize query performance.  
+- Handle data relationships carefully to maintain data integrity.  
+- Document all schema changes clearly.  
+
+### Testing Requirements  
+- Write comprehensive unit tests for all backend services.  
+- Test edge cases in business logic.  
+- Mock external dependencies in tests to isolate functionality.  
+- Write integration tests for critical API flows.  
+- Test database queries, migrations, and schema changes.  
+- Cover error handling and exceptions extensively.  
+- Test with various user roles and permissions.  
+- Validate API response formats and status codes.  
+- Test pagination, filtering, and sorting mechanisms.  
+
+### API Design  
+- Follow REST or GraphQL conventions consistently.  
+- Implement meaningful error messages and proper status codes.  
+- Document all API endpoints with clear usage instructions.  
+- Version APIs to ensure backward compatibility.  
+- Use rate limiting to prevent abuse of APIs.  
+
+---
+
+## API URL Structure  
+
+When accessing resource-level API endpoints, use `resource-id` or `resource-slug`.  
+
+### Base Structure:  
+`{app-name}/{feature}/{resource}/{resource-id}/{action}`  
+
+### Examples:  
+
+1. **Collection-level Endpoint**:  
+   - **URL:** `app-name/feature/items/`  
+   - **Purpose:** List or create items.  
+   - **Methods:**  
+     - `GET` — List all items.  
+     - `POST` — Create a new item.  
+
+2. **Single Resource Endpoint**:  
+   - **URL:** `app-name/feature/items/{item-id}/`  
+   - **Purpose:** Retrieve or delete an item by ID.  
+   - **Methods:**  
+     - `GET` — Retrieve the item.  
+     - `DELETE` — Delete the item.  
+
+3. **Update Endpoint**:  
+   - **URL:** `app-name/feature/items/{item-id}/update/`  
+   - **Purpose:** Update an item.  
+   - **Methods:**  
+     - `PUT` — Replace the entire resource.  
+     - `PATCH` — Partially update the resource.  
+
+4. **Filtered or Nested Resources**:  
+   - **URL:** `app-name/feature/items/category/{category-id}/`  
+   - **URL:** `app-name/feature/items/status/{status}/`  
+   - **Purpose:** Retrieve items filtered by category or status.  
+   - **Methods:**  
+     - `GET` — Retrieve filtered data.  
+
+5. **Bulk Actions**:  
+   - **URL:** `app-name/feature/items/bulk-delete/`  
+   - **Purpose:** Perform bulk operations.  
+   - **Methods:**  
+     - `POST` — Perform bulk actions (e.g., delete multiple items).  
+
+6. **Search and Query Parameters**:  
+   - **URL:** `app-name/feature/items/?search=term&filter=value`  
+   - **Purpose:** Search and filter items.  
+   - **Methods:**  
+     - `GET` — Retrieve filtered data.  
+
+---
+
+## Common Guidelines  
+
+### Pull Request Process  
+- Run all tests locally before submitting.  
+- Focus on keeping PRs small and focused.  
+- Write clear and concise PR descriptions.  
+- Include relevant screenshots or test outputs.  
+- Respond to code reviews within 24 hours.  
+
+### Version Control  
+- Write clear, descriptive commit messages.  
+- Regularly sync branches with the main branch.  
+- Avoid committing unnecessary files (e.g., `node_modules`).  
+- Use feature branches for development.  
+- Follow the defined branching strategy.  
+
+### Documentation  
+- Keep the README updated.  
+- Document all environment variables and dependencies.  
+- Update API documentation with every change.  
+- Record breaking changes and migration steps.  
+- Ensure documentation is up to date and clear.  
+
+---
+
+## Consequences of Not Following Guidelines  
+
+Failure to follow these guidelines can cause serious issues, such as:  
+- **UI/UX violations** leading to inconsistent user experience or accessibility problems.  
+- **Frontend violations** causing performance issues and a poor user experience.  
+- **Backend violations** resulting in data loss, security vulnerabilities, or downtime.  
+
+These guidelines are in place to ensure high-quality deliverables. Please review them daily until they are second nature.  
+
+For questions or clarifications, reach out to your team lead.  
+
+--- 

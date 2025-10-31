@@ -33,6 +33,7 @@
 | 20 | Pawhuska                    | `production` | Database    | `5451`        | `5432`         | `84.247.184.158:5451/pawhuska_prod_db`           |
 | 21 | Job Match                   | `test`       | Database    | `5452`        | `5432`         | `84.247.184.158:5452/jobmatch_test_db`           |
 | 22 | Job Match                   | `production` | Database    | `5453`        | `5432`         | `84.247.184.158:5453/jobmatch_prod_db`           |
+| 22 | Fehdan Meat Processing      | `test`       | Database    | `5454         | `5432`         | `84.247.184.158:5453/fehdan_meat_db`             |
 
 ---
 
